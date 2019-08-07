@@ -11,11 +11,14 @@ class Test extends React.Component{
 		const match = this.props.match
 
 		return <div>
-                <Switch>
-                    <Route path={`${match.url}/form`} name="Login Page" component={Form}/>
-                    <Route path={`${match.url}/demo`} name="Login Page" component={Demo}/>
-                </Switch>
-		</div>
+					<div>
+						test
+					</div>
+	                <Switch>
+	                    <Route path={`${match.url}/form`} name="Login Page" component={Form}/>
+	                    <Route path={`${match.url}/demo`} name="Login Page" component={Demo}/>
+	                </Switch>
+				</div>
 	}
 }
 
