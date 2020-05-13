@@ -1,7 +1,9 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import './styles/login.scss'
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
 import { Row, Col } from 'antd';
+import { login } from '../../actions/login'
 
 
 function hasErrors(fieldsError) {
@@ -20,6 +22,7 @@ class LoginForm extends React.Component{
 	    this.props.form.validateFields((err, values) => {
 	      	if (!err) {
 	        	console.log('Received values of form: ', values);
+	        	this.props.dispatch(login(values.username, values.password))
 	      	}
 	    });
 	};
@@ -73,4 +76,8 @@ class LoginForm extends React.Component{
 
 const Login = Form.create({ name: 'normal_login' })(LoginForm);
 
-export default Login
+export default connect(state => {
+	return {
+		account: state.account
+	}
+})(Login)
