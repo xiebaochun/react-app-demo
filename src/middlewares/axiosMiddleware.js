@@ -68,7 +68,7 @@ export default (clientMap, middlewareInterceptors) => {
 	            getAccessTokenPromise = Promise.resolve(getAccessToken())
 	        } 
 	        let axiosClient = axios.create({
-									baseURL: 'http://localhost:8081',
+									baseURL: 'http://localhost:8080',
 									responseType: 'json'
 								})
 

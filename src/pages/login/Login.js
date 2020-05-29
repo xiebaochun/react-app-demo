@@ -22,7 +22,11 @@ class LoginForm extends React.Component{
 	    this.props.form.validateFields((err, values) => {
 	      	if (!err) {
 	        	console.log('Received values of form: ', values);
-	        	this.props.dispatch(login(values.username, values.password))
+	        	this.props.dispatch(login(values.username, values.password)).then((res) => {
+	        		//console.log(res)
+	        		sessionStorage.setItem('accessToken', res.data)
+	        		this.props.history.push('/')
+	        	})
 	      	}
 	    });
 	};

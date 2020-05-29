@@ -8,9 +8,10 @@ export function login(username, password, headers = {}) {
 		payload: {
 			request: {
 				method: 'post',
-				url: `/login`,
-				data: {username, password},
-				headers: R.merge(getDefaultHeaders(), headers)
+				url: `users/signin?username=${username}&password=${password}`,
+				
+				headers: R.merge(getDefaultHeaders(), headers),
+				responseType: 'text'
 			}
 		}
 	}
